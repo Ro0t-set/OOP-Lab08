@@ -29,7 +29,7 @@ public class ControllerImpl implements Controller {
 
     public List<String> getPrintedStringHistory() {
         final List<String> historyList = new ArrayList<>();
-        for (int i = 0; i < courrentStringIndex; i++) {
+        for (int i = 0; i <= courrentStringIndex; i++) {
             historyList.add(strings.get(i));
         }
         return historyList;

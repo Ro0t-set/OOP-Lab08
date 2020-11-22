@@ -48,7 +48,7 @@ public class MiniGUI {
             @Override
             public void actionPerformed(final ActionEvent e) {
 
-                resul.setText("" + Integer.toString(rng.nextInt()));
+                resul.setText(Integer.toString(rng.nextInt()));
             }
         });
     }

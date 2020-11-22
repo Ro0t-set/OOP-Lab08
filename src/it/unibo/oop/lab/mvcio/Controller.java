@@ -1,5 +1,9 @@
 package it.unibo.oop.lab.mvcio;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+
 /**
  * 
  */
@@ -27,5 +31,48 @@ public class Controller {
      * System.getProperty("file.separator"). The combined use of those methods leads
      * to a software that runs correctly on every platform.
      */
+
+    private static final String DIR = System.getProperty("user.home");
+    private static final String SEPARATOR = System.getProperty("file.separator");
+    private static final String FILE_NAME = "output.txt";
+
+    private File file = new File(DIR + SEPARATOR + FILE_NAME);
+
+    /**
+     * 
+     * @return get file
+     */
+    public File getFile() {
+        return file;
+    }
+
+    /**
+     * 
+     * @param file
+     */
+    public void setFile(final File file) {
+        this.file = file;
+    }
+
+    /**
+     * 
+     * @param s
+     */
+    public void nextString(final String s) {
+        try {
+            final PrintStream newFile = new PrintStream(file);
+            newFile.println(s);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 
+     * @return dir file
+     */
+    public String fileDir() {
+        return DIR + SEPARATOR + FILE_NAME;
+    }
 
 }
